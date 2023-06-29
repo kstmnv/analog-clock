@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clock-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: clock
+  template:
+    metadata:
+      labels:
+        app: clock
+    spec:
+      containers:
+      - name: clock
+        image: kstmnv/clock:latest
+        ports:
+        - containerPort: 8080
